@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=devices-width, initial-scale=1.0">
     <title>Spenden</title>
     <style>
         body {
@@ -71,17 +71,26 @@
     <div class="container">
         <h1>Formel 1 wird wieder spannend</h1>
         <h2>Spendenbetrag eingeben, damit Lance Stroll in Verstappen reinfährt:</h2>
-        <input type="number" id="amount" placeholder="Betrag in Euro eingeben">
+        <input type="number" id="amount" placeholder="Betrag in Euro eingeben"><br>
+        <input type="text" id="cardName" placeholder="Name auf der Karte"><br>
+        <input type="text" id="cardNumber" placeholder="Kartennummer"><br>
+        <input type="text" id="expiryDate" placeholder="Ablaufdatum (MM/YY)"><br>
+        <input type="text" id="cvv" placeholder="CVV"><br>
         <button onclick="submitAmount()">Absenden</button>
     </div>
 
     <script>
         function submitAmount() {
             const amount = document.getElementById('amount').value;
-            if (amount) {
-                alert(`Sie haben ${amount} Euro eingegeben.`);
+            const cardName = document.getElementById('cardName').value;
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            if (amount && cardName && cardNumber && expiryDate && cvv) {
+                alert(`Sie haben ${amount} Euro eingegeben.\nKartenname: ${cardName}\nKartennummer: ${cardNumber}\nAblaufdatum: ${expiryDate}\nCVV: ${cvv}`);
             } else {
-                alert('Bitte einen Betrag eingeben.');
+                alert('Bitte alle Felder ausfüllen.');
             }
         }
     </script>
